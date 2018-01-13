@@ -12,7 +12,7 @@ public class OddNumbersExterminator {
 
     }
 
-    public static void exterminate(ArrayList<Integer> numbers) {
+    public static ArrayList<Integer> exterminate(ArrayList<Integer> numbers) {
         int temp = 0;
         ArrayList<Integer> evenNumbers = new ArrayList<>();
         for (int i = 0; i < numbers.size(); i++) {
@@ -21,14 +21,17 @@ public class OddNumbersExterminator {
                 evenNumbers.add(temp);
             }
         }
+        return evenNumbers;
     }
 
     public static ArrayList<Integer> generatedNumbers() {
         ArrayList<Integer> generatedNumbers = new ArrayList<>();
-        Random generator = new Random();
-        for (int n = 0; n < 100; n++) {
-            generatedNumbers.add(generator.nextInt(100));
-        }
+        generatedNumbers.add(1);
+        generatedNumbers.add(2);
+        generatedNumbers.add(3);
+        generatedNumbers.add(4);
+        generatedNumbers.add(5);
+
         return generatedNumbers;
     }
 }
