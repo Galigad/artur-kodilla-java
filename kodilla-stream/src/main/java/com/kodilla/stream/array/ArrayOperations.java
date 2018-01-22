@@ -10,7 +10,7 @@ public interface ArrayOperations {
         double avg = IntStream.range(0, numbers.length)
                 .map(n -> numbers[n])
                 .average()
-                .getAsDouble();
+                .orElse(0);
         return avg;
 
     }
