@@ -130,7 +130,7 @@ public class BoardTestSuite {
         long longTasks = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .map(t -> t.getCreated())
+                .map(Task::getCreated)
                 .filter(d -> d.compareTo(LocalDate.now().minusDays(10)) <= 0)
                 .count();
 
@@ -143,14 +143,14 @@ public class BoardTestSuite {
         //Given
         Board project = prepareTestData();
         //When
-        List<TaskList> avgProjectTime = new ArrayList<>();
-        avgProjectTime.add(new TaskList("Average in progress projects time"));
-
-
-
-
+        double avgTimeTask = project.getTaskLists().stream()
+                .filter(t -> t.getName().equals("In progress"))
+                .flatMap(t -> t.getTasks().stream())
+                .map(t2 -> Math.abs(Period.between(LocalDate.now(),t2.getCreated()).getDays()))
+                .mapToInt(n -> n)
+                .average().orElse(0);
 
         //Then
-
+        Assert.assertEquals(10, avgTimeTask, 0.1);
     }
 }
