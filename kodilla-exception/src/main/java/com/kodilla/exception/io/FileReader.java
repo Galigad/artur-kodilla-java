@@ -20,7 +20,7 @@ public class FileReader {
 
             System.out.println("Oh no! Something went wrong! Error:" + e);
         } finally {
-            System.out.println("I am gonna be here... always!");
+            System.out.println("I am gonna be here");
         }
     }
 }
