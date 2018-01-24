@@ -146,7 +146,7 @@ public class BoardTestSuite {
         double avgTimeTask = project.getTaskLists().stream()
                 .filter(t -> t.getName().equals("In progress"))
                 .flatMap(t -> t.getTasks().stream())
-                .map(t2 -> Math.abs(Period.between(LocalDate.now(),t2.getCreated()).getDays()))
+                .map(task -> Math.abs(Period.between(LocalDate.now(), task.getCreated()).getDays()))
                 .mapToInt(n -> n)
                 .average().orElse(0);
 
