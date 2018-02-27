@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.exampleShop;
 
 public class User {
     private String name;
@@ -37,12 +37,10 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                ", adress='" + adress + '\'' +
-                '}';
+        return "Imię = '" + name + '\'' +
+                ", Nazwisko = '" + surname + '\'' +
+                ", adres email = '" + email + '\'' +
+                ", telefon kontaktowy = " + phoneNumber +
+                ", adres = '" + adress + '\'';
     }
 }
