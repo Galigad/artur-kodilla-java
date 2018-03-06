@@ -51,10 +51,20 @@ public class Game {
         System.out.println("Player 1 selected: " + player1Play);
         System.out.println("Player 2 selected: " + player2Play);
         String winner = whoWins(player1Play, player2Play);
-        if(winner.equals("P1")) {
+        /*if(winner.equals("P1")) {
             player1Wins++;
             System.out.println("Player 1 wins!");
         } else if (winner.equals("P2")) {
+            player2Wins++;
+            System.out.println("Player 2 wins!");
+        } else {
+            System.out.println("TIE!");
+        } */
+        String message = checkWhoWin();
+        if(message.equals("P1")) {
+            player1Wins++;
+            System.out.println("Player 1 wins!");
+        } else if (message.equals("P2")) {
             player2Wins++;
             System.out.println("Player 2 wins!");
         } else {
@@ -97,5 +107,16 @@ public class Game {
         Random random = new Random();
         String[] s = {"R", "S", "P"};
         return s[random.nextInt(3)];
+    }
+    private String checkWhoWin() {
+        Random random = new Random();
+        int result = random.nextInt(4);
+        if(result == 0) {
+            return "TIE!";
+        } else if( result == 1) {
+            return "P1";
+        } else {
+            return "P2";
+        }
     }
 }
