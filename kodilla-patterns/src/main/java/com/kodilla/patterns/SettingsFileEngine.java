@@ -1,4 +1,4 @@
-package com.kodilla.patterns.singleton;
+package com.kodilla.patterns;
 
 public final class SettingsFileEngine {
     private static SettingsFileEngine settingsFileEngineInstance = null;
