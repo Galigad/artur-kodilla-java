@@ -8,13 +8,13 @@ public class BigmacTestSuite {
     public void testNewBigmac() {
         //Given
             Bigmac bigmac = new Bigmac.BigmacBuilder()
-                    .roll(Bigmac.RollEnum.classic)
+                    .roll(Roll.classic)
                     .burgers(2)
-                    .sauce(Bigmac.SauceEnum.barbecue)
-                    .ingredient(Bigmac.IngridientsEnum.bacon)
-                    .ingredient(Bigmac.IngridientsEnum.cheese)
-                    .ingredient(Bigmac.IngridientsEnum.onion)
-                    .ingredient(Bigmac.IngridientsEnum.lettuce)
+                    .sauce(Sauce.barbecue)
+                    .ingredient(Ingridients.bacon)
+                    .ingredient(Ingridients.cheese)
+                    .ingredient(Ingridients.onion)
+                    .ingredient(Ingridients.lettuce)
                     .build();
         System.out.println(bigmac);
         //When

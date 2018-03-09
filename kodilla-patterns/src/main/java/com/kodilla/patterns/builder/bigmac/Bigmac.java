@@ -15,7 +15,7 @@ public final class Bigmac {
         private String sauce;
         private List<String> ingredients = new ArrayList<>();
 
-        public BigmacBuilder roll(RollEnum roll) {
+        public BigmacBuilder roll(Roll roll) {
             this.roll = roll.toString();
             return this;
         }
@@ -25,12 +25,12 @@ public final class Bigmac {
             return this;
         }
 
-        public BigmacBuilder sauce(SauceEnum sauce) {
+        public BigmacBuilder sauce(Sauce sauce) {
             this.sauce = sauce.toString();
             return this;
         }
 
-        public BigmacBuilder ingredient(IngridientsEnum ingredient) {
+        public BigmacBuilder ingredient(Ingridients ingredient) {
             ingredients.add(ingredient.toString());
             return this;
         }
@@ -46,18 +46,6 @@ public final class Bigmac {
         this.burgers = burgers;
         this.sauce = sauce;
         this.ingredients = ingredients;
-    }
-
-    public enum RollEnum {
-        classic, sesame;
-    }
-
-    public enum SauceEnum {
-        standard, thousandIslandDressing, barbecue;
-    }
-
-    public enum IngridientsEnum {
-        lettuce, onion, bacon, cucumber, chilliPeppers, mushrooms, shrimp, cheese;
     }
 
     public List<String> getIngredients() {
