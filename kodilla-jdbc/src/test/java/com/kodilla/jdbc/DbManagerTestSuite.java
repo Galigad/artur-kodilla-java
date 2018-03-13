@@ -44,7 +44,6 @@ public class DbManagerTestSuite {
     public void testSelectUsersAndPosts() throws SQLException {
         //Given
         DbManager dbManager = DbManager.getInstance();
-
         //When
         String sqlQuery =
                 "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER\n" +
@@ -55,7 +54,6 @@ public class DbManagerTestSuite {
                 "ORDER BY U.LASTNAME, U.FIRSTNAME";
         Statement statement = dbManager.getConnection().createStatement();
         ResultSet rs = statement.executeQuery(sqlQuery);
-
         //Then
         int counter = 0;
         while (rs.next()) {
