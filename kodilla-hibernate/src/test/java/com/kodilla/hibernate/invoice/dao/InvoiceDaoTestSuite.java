@@ -45,7 +45,7 @@ public class InvoiceDaoTestSuite {
         Invoice inv =invoiceDao.findById(invoice.getId());
 
         //THEN
-        Assert.assertNotEquals(0, inv);
+        Assert.assertNotEquals(0, inv.getId());
 
         //CLEANUP
         try {
