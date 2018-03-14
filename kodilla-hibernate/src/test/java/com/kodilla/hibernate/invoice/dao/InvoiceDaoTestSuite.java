@@ -11,6 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -30,28 +32,24 @@ public class InvoiceDaoTestSuite {
         Item item3 = new Item(tablet, new BigDecimal(999), 10);
         Item item4 = new Item(phone, new BigDecimal(899), 1);
 
-        Invoice invoice = new Invoice("A1/01/01/2018");
+        List<Item> items = new ArrayList<>();
+        items.add(item1);
+        items.add(item2);
+        items.add(item3);
+        items.add(item4);
 
-        item1.setInvoices(invoice);
-        item2.setInvoices(invoice);
-        item3.setInvoices(invoice);
-        item4.setInvoices(invoice);
-
-        invoice.getItems().add(item1);
-        invoice.getItems().add(item2);
-        invoice.getItems().add(item3);
-        invoice.getItems().add(item4);
-
+        Invoice invoice = new Invoice("A1/01/01/2018", items);
+        invoice.setItems(items);
         //WHEN
         invoiceDao.save(invoice);
+        Invoice inv =invoiceDao.findById(invoice.getId());
 
         //THEN
-        int id = invoice.getId();
-        Assert.assertNotEquals(0, id);
+        Assert.assertNotEquals(0, inv);
 
         //CLEANUP
         try {
-            invoiceDao.delete(invoice);
+            invoiceDao.delete(inv);
         } catch (Exception e) {
             e.getMessage();
         }
