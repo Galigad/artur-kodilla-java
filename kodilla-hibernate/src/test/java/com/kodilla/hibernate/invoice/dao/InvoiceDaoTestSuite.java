@@ -40,18 +40,23 @@ public class InvoiceDaoTestSuite {
 
         Invoice invoice = new Invoice("A1/01/01/2018", items);
         invoice.setItems(items);
+        item1.setInvoice(invoice);
+        item2.setInvoice(invoice);
+        item3.setInvoice(invoice);
+        item4.setInvoice(invoice);
+
         //WHEN
         invoiceDao.save(invoice);
-        Invoice inv =invoiceDao.findById(invoice.getId());
+        Invoice inv = invoiceDao.findById(invoice.getId());
 
         //THEN
         Assert.assertNotEquals(0, inv.getId());
 
         //CLEANUP
-        try {
-            invoiceDao.delete(inv);
-        } catch (Exception e) {
-            e.getMessage();
-        }
+        //try {
+        //    invoiceDao.delete(inv);
+        //} catch (Exception e) {
+        //    e.getMessage();
+        //}
     }
 }
