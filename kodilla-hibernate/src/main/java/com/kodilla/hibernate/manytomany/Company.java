@@ -11,6 +11,12 @@ import java.util.List;
                 " WHERE SUBSTRING(company_name, 1, 3) = :SUBSTRING",
         resultClass = Company.class
 )
+
+@NamedQuery(
+        name = "Company.retrieveCompaniesWithNameLike",
+        query = "FROM Company WHERE company_name LIKE :ARG"
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
