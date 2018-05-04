@@ -3,7 +3,9 @@ package com.kodilla.sudoku;
 public class SudokuSolver {
 
     public int[][] fillSudoku(int[][] board) {
+        return board;
     }
+
     public int[][] fillSingleField(int[][] board, String userInput) {
         String[] splited = userInput.split("\\s+");
         int xPosition = Integer.parseInt(splited[0]) - 1;
@@ -22,9 +24,9 @@ public class SudokuSolver {
                 return false;
             }
             if(xPostion % 3 == 0) {
-                board[xPostion][yPostion];
-                board[xPostion + 1][yPostion];
-                board[xPostion + 2][yPostion];
+                //board[xPostion][yPostion];
+                //board[xPostion + 1][yPostion];
+                //board[xPostion + 2][yPostion];
             }
         }
         return true;
