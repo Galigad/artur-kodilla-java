@@ -36,7 +36,7 @@ public class QueryFascadeTestSuite {
         companyDao.save(greyMatter);
 
         //When
-        List<Company> result = queryFascade.retrieveCompaniesWithNameLike("%ma%");
+        List<Company> result = queryFascade.retrieveCompaniesWithNameLike("ma");
 
         //Then
         Assert.assertEquals(3, result.size());
@@ -54,7 +54,7 @@ public class QueryFascadeTestSuite {
         employeeDao.save(e2);
         employeeDao.save(e3);
 
-        List<Employee> result = queryFascade.retriveEmployeeSurname("%s%");
+        List<Employee> result = queryFascade.retriveEmployeeSurname("s");
 
         Assert.assertEquals(3,result.size());
 
